@@ -56,8 +56,8 @@ def plot_model_history(model):
     fig.suptitle(f'{model.name} training history')
     fig.supxlabel('epoch')
     
-    axs[0].set_title('Loss')
-    axs[1].set_title('Accuracy')
+    axs[0].set_title('loss')
+    axs[1].set_title('accuracy')
     
     plt.tight_layout()
 
