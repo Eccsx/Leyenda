@@ -19,10 +19,10 @@ def is_model_already_trained(model):
 
 def save_model_training(model):
     model.save_weights(f'models/weigths/{model.name}.h5')
-    joblib.dump(f'models/history/{model.name}.pkl', model.history)
+    joblib.dump(model.history, f'models/history/{model.name}.pkl')
 
 
-def load_model_training(model, NUM_EPOCH):
+def load_model_training(model):
     model.load_weights(f'models/weigths/{model.name}.h5')
     model.history = joblib.load(f'models/history/{model.name}.pkl')
         
@@ -53,8 +53,11 @@ def plot_model_history(model):
                  ax=fig.axes[1],
                  label='val_sparse_categorical_accuracy')
 
-    fig.suptitle(f'{model.name} training history', fontsize=16)
+    fig.suptitle(f'{model.name} training history')
     fig.supxlabel('epoch')
+    
+    axs[0].set_title('Loss')
+    axs[1].set_title('Accuracy')
     
     plt.tight_layout()
 
