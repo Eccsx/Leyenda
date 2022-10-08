@@ -71,24 +71,25 @@ def plot_models_history(models):
     
     for m in models:
         history = m.history
+        color = next(palette)
     
         sns.lineplot(x=history.epoch, y=history.history['loss'],
-                     color=next(palette),
+                     color=color,
                      ax=fig.axes[0],
                      label=m.name)
         
         sns.lineplot(x=history.epoch, y=history.history['val_loss'],
-                     color=next(palette),
+                     color=color,
                      ax=fig.axes[1],
                      label=m.name)
 
         sns.lineplot(x=history.epoch, y=history.history['sparse_categorical_accuracy'],
-                     color=next(palette),
+                     color=color,
                      ax=fig.axes[2],
                      label=m.name)
         
         sns.lineplot(x=history.epoch, y=history.history['val_sparse_categorical_accuracy'],
-                     color=next(palette),
+                     color=color,
                      ax=fig.axes[3],
                      label=m.name)
         
@@ -97,7 +98,7 @@ def plot_models_history(models):
     axs[2].set_title('sparse_categorical_accuracy')
     axs[3].set_title('val_sparse_categorical_accuracy')
 
-    fig.suptitle('Training history comparision', fontsize=16)
+    fig.suptitle('training history comparision')
     fig.supxlabel('epoch')
     
     plt.tight_layout()

@@ -1,4 +1,9 @@
 data/
+models/
+
+!data/.gitkeep
+!models/history/.gitkeep
+!models/weights/.gitkeep
 
 .ipynb_checkpoints
 __pycache__
