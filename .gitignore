@@ -1,8 +1,9 @@
 data/
-models/history/*.pkl
-models/weights/*.h5
+models/
 
 !data/.gitkeep
+!models/history/.gitkeep
+!models/weigths/.gitkeep
 
 .ipynb_checkpoints
 __pycache__
